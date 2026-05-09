@@ -21,11 +21,11 @@ function Auth() {
   const [isLogin, setIsLogin] =
     useState(true);
 
-  // ======================
+  // =====================
   // GOOGLE LOGIN
-  // ======================
+  // =====================
 
-  const handleGoogleLogin =
+  const googleLogin =
     async () => {
       try {
         const provider =
@@ -40,9 +40,9 @@ function Auth() {
       }
     };
 
-  // ======================
+  // =====================
   // EMAIL LOGIN / SIGNUP
-  // ======================
+  // =====================
 
   const handleAuth =
     async () => {
@@ -55,6 +55,10 @@ function Auth() {
             email,
             password
           );
+
+          alert(
+            "Login Successful ✅"
+          );
         } else {
           // SIGNUP
 
@@ -63,8 +67,14 @@ function Auth() {
             email,
             password
           );
+
+          alert(
+            "Account Created ✅"
+          );
         }
       } catch (error) {
+        console.log(error);
+
         alert(error.message);
       }
     };
@@ -119,9 +129,7 @@ function Auth() {
 
         <button
           className="google-btn"
-          onClick={
-            handleGoogleLogin
-          }
+          onClick={googleLogin}
         >
           Continue with Google
         </button>

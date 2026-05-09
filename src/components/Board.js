@@ -219,12 +219,24 @@ function Board({ user }) {
               FocusFlow 🚀
             </h2>
 
-            <p>
-              Welcome,{" "}
-              {
-                user?.email
-              }
-            </p>
+   <p>
+  Welcome,{" "}
+  {user?.displayName
+    ? user.displayName
+        .split(" ")
+        .slice(0, 2)
+        .join(" ")
+    : user?.email
+        ?.split("@")[0]
+        ?.split(".")
+        .slice(0, 0)
+        .join(" ")
+        .replace(
+          /\b\w/g,
+          (c) =>
+            c.toUpperCase()
+        )}
+</p>
           </div>
 
           <button
